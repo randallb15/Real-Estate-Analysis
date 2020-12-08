@@ -21,6 +21,9 @@ listings2 df:
 - Had to use unzip to get data
 - used regular expressions to extract bathrooms from text
 
+Cleaning.py:
+- This is used to clean the incoming Airbnb data for each city.  Since I had already done it for Austin, this was easy to reproduce for the other 13 cities.
+
 Next, we will want to compare zip codes in Austin and determine which are the best zip codes
 - We will need to estimate revenue based on price and availability
 - We can also just look at price per bed or per bed/bath to determine where the prices are the highest
