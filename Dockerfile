@@ -6,6 +6,8 @@ RUN conda install pandas
 RUN conda install numpy
 RUN conda install matplotlib
 RUN conda install plotly
+RUN conda install -c conda-forge nodejs
+RUN conda update nodejs
 RUN jupyter labextension install jupyterlab-plotly
 
 COPY . .
