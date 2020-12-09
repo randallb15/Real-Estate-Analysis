@@ -15,7 +15,15 @@ Alternative Hypothesis: There is no difference in revenue between 1/1 5 miles fr
 Where is the best place to buy an Airbnb for a real estate investor in Austin?  How do we go about solving this problem?
 
 First, we want to compare the real estate market for Austin to different places around the world.  This will give us an idea of how good the Austin market looks in terms of Airbnb investment as compared to other cities.
-- Possible Hypothesis - Austin is no better than Portland, Seattle, DC, Boston, San Francisco, Nashville, New Orleans, Denver, Asheville for Airbnb Rental Prices vs. Price per sqft for sold houses vs. Alternate Hypothesis that it is
+- Possible Hypothesis - Austin is no better than Portland, Seattle, DC, Boston, San Francisco, Nashville, New Orleans, Denver, Asheville for Airbnb Rental Prices vs. Price per sqft for sold houses vs. Alternate Hypothesis that it is.
+- Will cherry-pick 3 cities other than Austin to compare based on EDA
+
+REdf:
+Has a region ID for different counties: 
+- 2866 for Travis County - the main county in Austin TX
+- ? Nashville?
+- ? SF?
+- ? NYC?
 
 listings2 df:
 - Had to use unzip to get data
