@@ -11,7 +11,7 @@ def cleaning_city(cwd,city):
 
     citylistingsdf = pd.read_csv('{}/listings.csv'.format(cwd))
     citylistingsdf2 = pd.read_csv('{}/listings2.csv'.format(cwd))
-    listingsdfcleaned = citylistingsdf[['id','name','host_id','neighbourhood','latitude','longitude','room_type','price','availability_365']]
+    listingsdfcleaned = citylistingsdf[['id','name','host_id','neighbourhood','latitude','longitude','number_of_reviews','room_type','price','availability_365']]
     listings2dfcleaned = citylistingsdf2[['id','listing_url','name','neighbourhood_cleansed','latitude','longitude','property_type','room_type','accommodates','availability_30','bathrooms_text','bedrooms','beds']]
 
     listings_comb = pd.merge(listingsdfcleaned,listings2dfcleaned,on=['id','name','latitude','longitude','room_type'],how='outer')
@@ -31,5 +31,6 @@ def cleaning_city(cwd,city):
 
     listings_comb['bathrooms_text'] = listings_comb['bathrooms_text'].apply(get_bath)
     listings_comb['bathrooms_text'] = listings_comb['bathrooms_text'].astype('float')
+    listings_comb = listings_comb[listings_comb['number_of_reviews'] >= 5]
     listings_comb.to_csv('{}/city_listings_comb{}.csv'.format(cwd,city))
     listings_comb.to_pickle('{}/city_listings_comb{}.pkl'.format(cwd,city))
