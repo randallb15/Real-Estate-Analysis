@@ -4,6 +4,5 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pyspark as ps
 import os
-from bs4 import BeautifulSoup
 import requests
-from selenium import webdriver
+from scipy import stats
