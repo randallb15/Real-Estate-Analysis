@@ -35,5 +35,6 @@ def cleaning_city(cwd,city):
     listings_comb['PricePerAccommodates'] = listings_comb['price']/listings_comb['accommodates']
     listings_comb['PricePerBedrooms'] = listings_comb['price']/listings_comb['bedrooms']
     listings_comb = listings_comb[listings_comb['PricePerAccommodates'] <= 500]
+    listings_comb = listings_comb[listings_comb['room_type'] == 'Entire home/apt']
     listings_comb.to_csv('{}/city_listings_comb{}.csv'.format(cwd,city))
     listings_comb.to_pickle('{}/city_listings_comb{}.pkl'.format(cwd,city))
