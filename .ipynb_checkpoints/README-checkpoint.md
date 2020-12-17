@@ -23,9 +23,17 @@ Austin is an incredibly fast growing city.  According to USA Today, it was the f
 To satisfy my curiosity, I wanted to compare with 3 other cities.  I chose a city on the East coast, the West coast and one that is more centrally located.  The three cities I chose were Boston, San Francisco and Nashville.  I did not have data on tourism rates but I was able to find the number of Airbnbs, average nightly price, and average sale price per square foot as of October 2020.  
 
 Here's some baseline information about each city that sets the stage for the analysis:
+
 ![Comparing Cities](img/cities.png)
 
+To compare the four cities, I used data from redfin to find the median sale price per square foot of house sales in the metro areas of the four cities.  I divided the nightly rental price of each listing by the cities median sale price per square foot to take the into consideration the prices of the local real estate market.  I then used bootstrap sampling to find the median of the composite score (nightly rental price divided by the city's median sale price per square foot) for each listing.  
 
+The bootstrap medians looked normally distributed, but the variance was not equal, so I used a Welch's t-test to see if we could show there was a statistical difference in the median composite scores for each city.  I ran a t-test for each city against Austin.  My null hypothesis for each test was that Austin was the same or worse in terms of composite score while my alternate hypothesis was that Austin was better in terms of the composite score mentioned earlier.
+
+### Running bootstrap samples
+Running the bootstrap samples on Austin vs. the other three cities yielded the following:
+
+![Austin vs. Nashville](img/bootstrapping.png)
 
 ### Hypotheses:
 
