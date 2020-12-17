@@ -23,7 +23,7 @@ Austin is an incredibly fast growing city.  According to USA Today, it was the f
 To satisfy my curiosity, I wanted to compare with 3 other cities.  I chose a city on the East coast, the West coast and one that is more centrally located.  The three cities I chose were Boston, San Francisco and Nashville.  I did not have data on tourism rates but I was able to find the number of Airbnbs, average nightly price, and average sale price per square foot as of October 2020.  
 
 Here's some baseline information about each city that sets the stage for the analysis:
-![]('img/cities.png')
+![Comparing Cities](img/cities.png)
 
 
 
