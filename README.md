@@ -1,4 +1,28 @@
-# Real Estate Investing Analysis - Buying an Airbnb
+# Real Estate Investing Analysis - Buying an Airbnb in Austin
+
+## Motivation:
+I bought my first house in 2018.  What made buying the house doable, and profitable, was that there was a "casita" or back house in the backyard.  After buying the house in late October, I paid a friend to design it and buy furniture for it and I was able to put it on Airbnb by the end of December.  I didn't know it at the time, but this would lead me much further into real estate and Airbnb.  I have now owned or managed 5 listings on Airbnb in the San Antonio and Austin, TX area.  This has been a fun side gig but has also taught me a lot about real estate and made me some money as well.
+
+Through this process, I have wondered how I would go about buying a rental property to put on Airbnb, and what would have the best Return on Investment.  There's a lot of considerations when thinking about real estate investing, especially when putting a property in the short-term rental space.  I wanted to explore three specific things that I would look at when buying an investment property to put onto Airbnb:
+
+1. City Location
+It is no surprise that some cities do better on Airbnb than others.  While most cities now have properties listed on Airbnb now, some are huge tourist destinations and can command more money per night on a short-term rental, since the demand is so high.  Other cities are also new to the market and have very low supply, so they can also charge high rates.  Some markets, like San Antonio, are budget markets since people are coming to San Antonio to visit family or to get away for the weekend and don't look for really high-quality listings (however, San Antonio actually has a fairly high tourism rate and has a pretty consistent customer base for short term rentals).  I am seeking to compare the Austin market to several other cities to see how it compares.  I also want to normalize for the median price per square foot of sale prices in the cities so that I can have a better idea of real return on investment.
+
+2. House Size
+House size can make a big difference in terms of return on investment.  One of the primary advantages of Airbnbs over hotel rooms is that they can house large numbers of people in the same location for a relatively low price per person.  So, obviously, you can charge more per night with a larger house with more bedrooms.  However, can you charge more per night per bedroom?  In other words, is the amount that you can charge per night a linear relationship with the amount of bedrooms in the house?  For example, if you can charge 100 USD per night for a 1 bedroom house, can you charge 300 USD per night for a 3 bedroom house or 500 USD per night for a 5 bedroom house, etc.?
+
+3. Area within the City
+It also should come as no surprise that there are areas in the city that fair better for a short term rental than others.  The conventional wisdom is that a downtown Airbnb will always do better than an Airbnb that is not downtown, but is this the case?  Even if a downtown Airbnb makes more money than one that isn't downtown, can it offset the higher real estate cost?
+
+## City Location
+Austin is an incredibly fast growing city.  According to USA Today, it was the fourth fastest growing city in the United States between 2010 and 2018 (https://www.usatoday.com/story/money/2019/05/09/americas-fastest-growing-cities/39442201/).  Tourism is high and real estate prices have risen faster than a lot of places around the country.  So how does it compare to other cities?
+
+To satisfy my curiosity, I wanted to compare with 3 other cities.  I chose a city on the East coast, the West coast and one that is more centrally located.  The three cities I chose were Boston, San Francisco and Nashville.  I did not have data on tourism rates but I was able to find the number of Airbnbs, average nightly price, and average sale price per square foot as of October 2020.  
+
+Here's some baseline information about each city that sets the stage for the analysis:
+![]('img/cities.png')
+
+
 
 ### Hypotheses:
 
