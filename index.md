@@ -1,37 +1,161 @@
-## Welcome to GitHub Pages
+# Real Estate Investing Analysis - Buying an Airbnb in Austin
 
-You can use the [editor on GitHub](https://github.com/randallb15/Real-Estate-Analysis/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+## Motivation:
+I bought my first house in 2018.  What made buying the house doable, and profitable, was that there was a "casita" or back house in the backyard.  After buying the house in late October, I paid a friend to design it and buy furniture for it and I was able to put it on Airbnb by the end of December.  I didn't know it at the time, but this would lead me much further into real estate and Airbnb.  I have now owned or managed 5 listings on Airbnb in the San Antonio and Austin, TX area.  This has been a fun side gig but has also taught me a lot about real estate and made me some money as well.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Through this process, I have wondered how I would go about buying a rental property to put on Airbnb, and what would have the best Return on Investment.  There's a lot of considerations when thinking about real estate investing, especially when putting a property in the short-term rental space.  I wanted to explore three specific things that I would look at when buying an investment property to put onto Airbnb:
 
-### Markdown
+**1. City Location:**
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+It is no surprise that some cities do better on Airbnb than others.  While most cities now have properties listed on Airbnb now, some are huge tourist destinations and can command more money per night on a short-term rental, since the demand is so high.  Other cities are also new to the market and have very low supply, so they can also charge high rates.  Some markets, like San Antonio, are budget markets since people are coming to San Antonio to visit family or to get away for the weekend and don't look for really high-quality listings (however, San Antonio actually has a fairly high tourism rate and has a pretty consistent customer base for short term rentals).  I am seeking to compare the Austin market to several other cities to see how it compares.  I also want to normalize for the median price per square foot of sale prices in the cities so that I can have a better idea of real return on investment.
 
-```markdown
-Syntax highlighted code block
+**2. House Size:**
 
-# Header 1
-## Header 2
-### Header 3
+House size can make a big difference in terms of return on investment.  One of the primary advantages of Airbnbs over hotel rooms is that they can house large numbers of people in the same location for a relatively low price per person.  So, obviously, you can charge more per night with a larger house with more bedrooms.  However, can you charge more per night per bedroom?  In other words, is the amount that you can charge per night a linear relationship with the amount of bedrooms in the house?  For example, if you can charge 100 USD per night for a 1 bedroom house, can you charge 300 USD per night for a 3 bedroom house or 500 USD per night for a 5 bedroom house, etc.?
 
-- Bulleted
-- List
+**3. Area within the City:**
 
-1. Numbered
-2. List
+It also should come as no surprise that there are areas in the city that fair better for a short term rental than others.  The conventional wisdom is that a downtown Airbnb will always do better than an Airbnb that is not downtown, but is this the case?  Even if a downtown Airbnb makes more money than one that isn't downtown, can it offset the higher real estate cost?
 
-**Bold** and _Italic_ and `Code` text
+## City Location
+Austin is an incredibly fast growing city.  According to USA Today, it was the fourth fastest growing city in the United States between 2010 and 2018 (https://www.usatoday.com/story/money/2019/05/09/americas-fastest-growing-cities/39442201/).  Tourism is high and real estate prices have risen faster than a lot of places around the country.  So how does it compare to other cities?
 
-[Link](url) and ![Image](src)
-```
+To satisfy my curiosity, I wanted to compare with 3 other cities.  I chose a city on the East coast, the West coast and one that is more centrally located.  The three cities I chose were Boston, San Francisco and Nashville.  I did not have data on tourism rates but I was able to find the number of Airbnbs, average nightly price, and average sale price per square foot as of October 2020.  
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Here's some baseline information about each city that sets the stage for the analysis:
 
-### Jekyll Themes
+![Comparing Cities](img/cities.png)
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/randallb15/Real-Estate-Analysis/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+To compare the four cities, I used data from redfin to find the median sale price per square foot of house sales in the metro areas of the four cities.  I divided the nightly rental price of each listing by the cities median sale price per square foot to take the into consideration the prices of the local real estate market.  I then used bootstrap sampling to find the median of the composite score (nightly rental price divided by the city's median sale price per square foot) for each listing.  
 
-### Support or Contact
+The bootstrap medians looked normally distributed, but the variance was not equal, so I used a Welch's t-test to see if we could show there was a statistical difference in the median composite scores for each city.  I ran a t-test for each city against Austin.  My null hypothesis for each test was that Austin was the same or worse in terms of composite score while my alternate hypothesis was that Austin was better in terms of the composite score mentioned earlier.
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+### Running bootstrap samples
+Running the bootstrap samples on Austin vs. the other three cities yielded the following:
+
+![Austin vs. Nashville](img/bootstrapping.png)
+
+This chart shows the medians of the composite score for each city.  This may be a little confusing, but basically, the score of 1 for Austin means that the median of all the listings divided by the price per sqft of Austin (about 157 USD per square foot) is about one.  This also means the median Airbnb nightly rental price is about 157 USD.  This lines up with the earlier graphs comparing the cities.
+
+We also see that while Nashville and Austin are pretty similar, but Nashville is higher.  These results led to investigating Austin vs. Nashville more closely.
+
+#### Austin vs. Nashville Mann Whitney U test
+I wanted to compare Austin and Nashville nightly rental prices.  The data is not normally distributed, so I used a Mann-Whitney U Test.  The null hypothesis was that Austin had the same nightly rental price as Nashville or less while the alternate hypothesis was that Nashville had a greater nightly rental price.
+
+Performing a Mann Whitney U test, I obtained a p-value of 0.0589.  This is slightly too high to reject the null hypothesis at an alpha level of 0.05 so the test was inconclusive.
+
+However, when running the test after dividing each rental price by the price per square foot, I obtained a p value of 3.17e-07.  On that basis, I can say that Nashville performs better using the metric I created to compare the cities.
+
+## Number of Bedrooms
+What size house should you invest in?  It is fairly obvious that the larger the house, the more bedrooms, and the more you can charge per night.  However, is it a linear relationship?  Will the nightly rate for a one bedroom house be one third the nightly rate of a three bedroom house?  Is there a sweet spot in terms of number of beds and rental price per bedroom?
+
+NOTE: There was not data available on sale price per bedroom of the houses.  To truly compare the expenses of the house to the income per bedroom, you would need this data and would require further analysis.  For the sake of this project, I am looking only at rental price per bedroom.
+NOTE2: From here on out, we will only be looking at Austin data.
+
+To do this analysis, I made a metric for each listing which was nightly rental price divided by the number of bedrooms.  I then divided the data into separate dataframes based on the number of bedrooms in the listing.  The final step was to run bootstrap samples on the medians for the Nightly Rental Price over the Number of Bedrooms metric that I created earlier.  
+
+![One Bedroom vs. Three Bedrooms](img/1vs3bedroom.png)
+
+Above, you can see that the median nightly price per bedroom for a single bedroom house is almost 20 USD higher than for a three bedroom house.  This is interesting and may require further analysis as to why, but I believe that there is a certain threshold below which people are not willing to list their properties.  This threshold would cause the one bedrooms to have a higher nightly price per bedroom.
+
+I also compared three bedroom houses to five bedroom houses, as well as five bedroom houses to those with six or more bedrooms.
+
+![Three Bedroom vs. Five Bedrooms](img/3vs5bedroom.png)
+
+![Five Bedroom vs. Six Plus Bedrooms](img/5vs6plusbedroom.png)
+
+It was interesting to see how much greater of a nightly price per bedroom the five bedroom houses commanded over the three bedroom houses.  My guess is that there is a much smaller supply of five bedroom houses than there is for three bedroom houses, so you can charge higher nightly rates (per bedroom).
+
+It can also be seen that there is no real difference in the medians for five bedroom houses and those with six or more bedrooms.
+
+Putting these PDFs together on one graph is shown by the following:
+
+![Nightly Price Per Bedroom PDFs](img/bedroombootstrapping.png)
+
+This graph shows how the variability changes.  A one bedroom house will have a much less wide range of price than a five or six bedroom plus house.  
+
+Putting the relationship of nightly price to bedrooms is shown in the graph below.  This also shows how variability increases with house size.
+
+![Nightly Price vs Number of Bedrooms](img/priceperbedrooms.png)
+
+## Location in Austin
+
+
+### Hypotheses:
+
+Null Hypothesis: A 3 Bed, 2 Bath house earns more revenue % house price than a 1 Bed, 1 Bath
+Alternative Hypothesis: There is no difference in revenue % house price for a 3/2 than a 1/1
+
+- For this, need to specify area, price range, etc.
+---
+
+Null Hypothesis: A 1/1 within 5 miles from downtown earns more revenue than a 1/1 further than 5 miles from downtown
+Alternative Hypothesis: There is no difference in revenue between 1/1 5 miles from downtown or further
+
+#### High level description of project:
+Where is the best place to buy an Airbnb for a real estate investor in Austin?  How do we go about solving this problem?
+
+First, we want to compare the real estate market for Austin to different places around the world.  This will give us an idea of how good the Austin market looks in terms of Airbnb investment as compared to other cities.
+- Possible Hypothesis - Austin is no better than Portland, Seattle, DC, Boston, San Francisco, Nashville, New Orleans, Denver, Asheville for Airbnb Rental Prices vs. Price per sqft for sold houses vs. Alternate Hypothesis that it is.
+- Will cherry-pick 3 cities other than Austin to compare based on EDA
+
+### Comparing a 3 bedroom house to a 1 bedroom house in terms of median nightly price per bedroom
+Null Hypothesis: A 3 bedroom house has the same or lower median nightly price per bed than a 1 bedroom house
+Alternative Hypothesis: A 3 bedroom house has a higher median nightly price per bed than a 1 bedroom house
+
+#### Also compared a 3 bedroom house to a 5 bedroom house and a 5 bedroom house to a house with 6 or more bedrooms
+
+
+
+
+### Next, we will want to compare zip codes in Austin and determine which are the best zip codes
+Downtown zip codes: 78701, 78702, 78703, 78705
+(All other zip codes considered outside of downtown)
+
+- We will need to estimate revenue based on price and availability
+- We can also just look at price per bed or per bed/bath to determine where the prices are the highest
+- We can look at the relationship between price per bed and availability for different zip codes
+- NOTE: average zip code ppsqft does not take into consideration the variation in ppsqft for different houses.  There would need to be more data and analysis to find out what would be the best ROI per ppsqft.
+
+
+#### Biggest data missing
+The biggest hurdle to this analysis was not knowing __individual__ home prices and price per square foot.  Since I only had aggregate data for each city, as well as no information about how house prices changed per bedroom, it was difficult to get a true individualized analysis on the houses.  This would serve as an initial step in the process of finding an Airbnb, but more analysis would be required. 
+
+#### Data Source(s): 
+Websites and/or databases:
+https://www.redfin.com/news/data-center/
+http://insideairbnb.com/get-the-data.html
+https://www.propstream.com/
+
+#### Data Quality:
+- In order to remove listings that are outliers - don't get booked or priced too highly to be competitive - **require at least 5 reviews**
+    - _This cut down almost half of the listings in Austin!!_
+    - There were still remaining outliers - most or all of them seemed to be by a company named WanderJaunt who has 433 listings around the country.  They had a number of listings that looked like they were moved up to 9,999 USD per night.  I am guessing that this is the maximum price per night allowed on the platform.  I am not sure why they are moved up so much - whether they are booked on a different platform or they do not want bookings, but they have days blocked off and they have reviews which is misleading.  **I also took these out of the data.**
+- Also, this only includes listings that are entire home/apt... Listings that are a private room, shared room, or hotel room are not considered.
+    
+REdf:
+Has a region ID for different counties: 
+- 2866 for Travis County - the main county in Austin TX
+- ? Nashville?
+- ? SF?
+- ? NYC?
+
+listings2 df:
+- Had to use unzip to get data
+- used regular expressions to extract bathrooms from text
+
+Cleaning.py:
+- This is used to clean the incoming Airbnb data for each city.  Since I had already done it for Austin, this was easy to reproduce for the other 13 cities.
+
+**NOTE: AUSppsf obtained manually and not all information is completely up to date.  Some zip codes have the most recent info from March.**
+- data obtained from propstream.com
+
+### Further Study
+I would want to look at availability.  None of this analysis takes into consideration the percent of time that the listings are booked.  So, while the bigger listings may command a higher price, they may be booked less often and compromise total revenue.
+
+I would like to look at correlations between house Airbnb prices and availability.  I think you could find a sweet spot in terms of house size, house price, location, Airbnb price, and availability to maximize revenue.
+
+Recommender for houses for Airbnb.
+
+Program that will input house data from zillow or realtor or manually and interpolate to guess what it may earn on Airbnb.
+
