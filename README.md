@@ -35,6 +35,8 @@ Running the bootstrap samples on Austin vs. the other three cities yielded the f
 
 ![Austin vs. Nashville](img/bootstrapping.png)
 
+This chart shows that there isn't much overlap in terms of the medians for their composite scores.  Just to make sure about the conclusions, I ran a Welch's t-test for each comparison
+
 ### Hypotheses:
 
 Null Hypothesis: A 3 Bed, 2 Bath house earns more revenue % house price than a 1 Bed, 1 Bath
@@ -72,7 +74,8 @@ Downtown zip codes: 78701, 78702, 78703, 78705
 - NOTE: average zip code ppsqft does not take into consideration the variation in ppsqft for different houses.  There would need to be more data and analysis to find out what would be the best ROI per ppsqft.
 
 
-
+#### Biggest data missing
+The biggest hurdle to this analysis was not knowing __individual__ home prices and price per square foot.  Since I only had aggregate data for each city, as well as no information about how house prices changed per bedroom, it was difficult to get a true individualized analysis on the houses.  This would serve as an initial step in the process of finding an Airbnb, but more analysis would be required. 
 
 #### Data Source(s): 
 Websites and/or databases:
