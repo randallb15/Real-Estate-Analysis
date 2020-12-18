@@ -68,7 +68,13 @@ It was interesting to see how much greater of a nightly price per bedroom the fi
 
 It can also be seen that there is no real difference in the medians for five bedroom houses and those with six or more bedrooms.
 
-Putting the relationship of nightly price to bedrooms is shown in the graph below.
+Putting these PDFs together on one graph is shown by the following:
+
+![Nightly Price Per Bedroom PDFs](img/bedroombootstrapping.png)
+
+This graph shows how the variability changes.  A one bedroom house will have a much less wide range of price than a five or six bedroom plus house.  
+
+Putting the relationship of nightly price to bedrooms is shown in the graph below.  This also shows how variability increases with house size.
 
 ![Nightly Price vs Number of Bedrooms](img/priceperbedrooms.png)
 
