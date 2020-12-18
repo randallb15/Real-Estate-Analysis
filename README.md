@@ -35,7 +35,20 @@ Running the bootstrap samples on Austin vs. the other three cities yielded the f
 
 ![Austin vs. Nashville](img/bootstrapping.png)
 
-This chart shows that there isn't much overlap in terms of the medians for their composite scores.  Just to make sure about the conclusions, I ran a Welch's t-test for each comparison
+This chart shows the medians of the composite score for each city.  This may be a little confusing, but basically, the score of 1 for Austin means that the median of all the listings divided by the price per sqft of Austin (about 157 USD per square foot) is about one.  This also means the median Airbnb nightly rental price is about 157 USD.  This lines up with the earlier graphs comparing the cities.
+
+We also see that while Nashville and Austin are pretty similar, but Nashville is higher.  These results led to investigating Austin vs. Nashville more closely.
+
+#### Austin vs. Nashville Mann Whitney U test
+I wanted to compare Austin and Nashville nightly rental prices.  The data is not normally distributed, so I used a Mann-Whitney U Test.  The null hypothesis was that Austin had the same nightly rental price as Nashville or less while the alternate hypothesis was that Nashville had a greater nightly rental price.
+
+Performing a Mann Whitney U test, I obtained a p-value of 0.0589.  This is slightly too high to reject the null hypothesis at an alpha level of 0.05 so the test was inconclusive.
+
+However, when running the test after dividing each rental price by the price per square foot, I obtained a p value of 3.17e-07.  On that basis, I can say that Nashville performs better using the metric I created to compare the cities.
+
+## Number of Bedrooms
+
+
 
 ### Hypotheses:
 
@@ -108,4 +121,8 @@ Cleaning.py:
 
 ### Further Study
 I would like to look at correlations between house Airbnb prices and availability.  I think you could find a sweet spot in terms of house size, house price, location, Airbnb price, and availability to maximize revenue.
+
+Recommender for houses for Airbnb.
+
+Program that will input house data from zillow or realtor or manually and interpolate to guess what it may earn on Airbnb.
 
