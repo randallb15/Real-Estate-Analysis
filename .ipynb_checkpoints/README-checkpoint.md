@@ -104,42 +104,22 @@ If it is actually better to be outside of downtown than inside, what are the bes
 
 ![Map of Austin with Airbnb Nightly Rental Price divided by Median Sale PPSF of Zip](img/chloro.png)
 
-
-### Hypotheses:
-
-Null Hypothesis: A 3 Bed, 2 Bath house earns more revenue % house price than a 1 Bed, 1 Bath
-Alternative Hypothesis: There is no difference in revenue % house price for a 3/2 than a 1/1
-
-- For this, need to specify area, price range, etc.
----
-
-Null Hypothesis: A 1/1 within 5 miles from downtown earns more revenue than a 1/1 further than 5 miles from downtown
-Alternative Hypothesis: There is no difference in revenue between 1/1 5 miles from downtown or further
-
-#### High level description of project:
-Where is the best place to buy an Airbnb for a real estate investor in Austin?  How do we go about solving this problem?
-
-First, we want to compare the real estate market for Austin to different places around the world.  This will give us an idea of how good the Austin market looks in terms of Airbnb investment as compared to other cities.
-- Possible Hypothesis - Austin is no better than Portland, Seattle, DC, Boston, San Francisco, Nashville, New Orleans, Denver, Asheville for Airbnb Rental Prices vs. Price per sqft for sold houses vs. Alternate Hypothesis that it is.
-- Will cherry-pick 3 cities other than Austin to compare based on EDA
-
-### Comparing a 3 bedroom house to a 1 bedroom house in terms of median nightly price per bedroom
-Null Hypothesis: A 3 bedroom house has the same or lower median nightly price per bed than a 1 bedroom house
-Alternative Hypothesis: A 3 bedroom house has a higher median nightly price per bed than a 1 bedroom house
-
-#### Also compared a 3 bedroom house to a 5 bedroom house and a 5 bedroom house to a house with 6 or more bedrooms
+The darker the color on this map, the higher the greater the nightly rental price over price per square foot metric.  The best zip codes in Austin from this map are 78731, 78723, and 78738.  78731 has a score of over 2.5, which means that a house in this zip code is expected to rent out for 2.5 times the median sale price per square foot of the area.  This can be compared to an average of 1 across the city of Austin.  
 
 
+## Conclusions
+In conclusion, to begin searching for a short term rental investment property, it would be best to look at a one bedroom house or a house that is five bedrooms or more (dependant on your budget).  The best place to begin your search would be in the zip codes of 78731, 78723 and 78738.  
 
+A final note, this analysis is a good place to start.  More individualized data is needed to choose a particular investment property.
 
-### Next, we will want to compare zip codes in Austin and determine which are the best zip codes
-Downtown zip codes: 78701, 78702, 78703, 78705
-(All other zip codes considered outside of downtown)
+___
 
-- We will need to estimate revenue based on price and availability
-- We can also just look at price per bed or per bed/bath to determine where the prices are the highest
-- We can look at the relationship between price per bed and availability for different zip codes
-- NOTE: average zip code ppsqft does not take into consideration the variation in ppsqft for different houses.  There would need to be more data and analysis to find out what would be the best ROI per ppsqft.
+### Further Study
+I would want to look at availability.  None of this analysis takes into consideration the percent of time that the listings are booked.  So, while the bigger listings may command a higher price, they may be booked less often and compromise total revenue.
+
+I would like to look at correlations between house Airbnb prices and availability.  I think you could find a sweet spot in terms of house size, house price, location, Airbnb price, and availability to maximize revenue.
+
+You could take this a step further and have a web app that takes in MLS data and recommends houses to buy based on expected ROI.
 
 
 #### Biggest data missing
@@ -157,12 +137,7 @@ https://www.propstream.com/
     - There were still remaining outliers - most or all of them seemed to be by a company named WanderJaunt who has 433 listings around the country.  They had a number of listings that looked like they were moved up to 9,999 USD per night.  I am guessing that this is the maximum price per night allowed on the platform.  I am not sure why they are moved up so much - whether they are booked on a different platform or they do not want bookings, but they have days blocked off and they have reviews which is misleading.  **I also took these out of the data.**
 - Also, this only includes listings that are entire home/apt... Listings that are a private room, shared room, or hotel room are not considered.
     
-REdf:
-Has a region ID for different counties: 
-- 2866 for Travis County - the main county in Austin TX
-- ? Nashville?
-- ? SF?
-- ? NYC?
+______
 
 listings2 df:
 - Had to use unzip to get data
@@ -173,13 +148,7 @@ Cleaning.py:
 
 **NOTE: AUSppsf obtained manually and not all information is completely up to date.  Some zip codes have the most recent info from March.**
 - data obtained from propstream.com
+____
 
-### Further Study
-I would want to look at availability.  None of this analysis takes into consideration the percent of time that the listings are booked.  So, while the bigger listings may command a higher price, they may be booked less often and compromise total revenue.
 
-I would like to look at correlations between house Airbnb prices and availability.  I think you could find a sweet spot in terms of house size, house price, location, Airbnb price, and availability to maximize revenue.
-
-Recommender for houses for Airbnb.
-
-Program that will input house data from zillow or realtor or manually and interpolate to guess what it may earn on Airbnb.
 
