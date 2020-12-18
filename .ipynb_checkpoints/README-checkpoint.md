@@ -79,6 +79,30 @@ Putting the relationship of nightly price to bedrooms is shown in the graph belo
 ![Nightly Price vs Number of Bedrooms](img/priceperbedrooms.png)
 
 ## Location in Austin
+Location plays a big part in whether you can make money with a short-term rental investment property.  The conventional wisdom says that downtown is the best place to be.  But is it?  Tourism might be higher and you may be able to charge more per night, but can that offset higher property values?
+
+In order to do this analysis, I needed to choose which zip codes were considered downtown.  After doing some research, I decided that 78701, 78702, 78703 and 78705 where the best zip codes to place in the "downtown" category.  Something interesting that I found was the **over 25%** of the Airbnb listings included were in these four zip codes.  
+
+The next step was to get the sale price per square foot for each zip code.  In order to do this, I used the websteam propstream.com to manually take the price per square foot for each Austin zip code that was included in the dataset.  From there, I added the zip code price per square foot to each listing based on zip code and created a new column which was the Airbnb Nightly Rental Price divided by the Sale Price Per Square Foot of that zip code.  This was the primary column I used to compare zip codes. 
+
+### Histograms
+
+But first, I wanted to see if the downtown listings did, in fact, have higher nightly rental prices.  A histogram of the distribution of nightly rental prices of downtown versus outside of downtown is shown below:
+
+![Downtown Comparison of Nightly Rental Prices](img/nightlypricedowntownhist.png)
+
+The histogram shows that the median is higher for downtown listings.  To be sure that it was higher, I used another Mann Whitney U test and obtained a p value of 4.65e-09.  So downtown listings do have a stastically significant higher nightly rental price.
+
+To take house prices into consideration, I created a histogram of the metric created earlier with nightly rental prices over sale price per square foot of the zip code the listing is in.  This histogram is shown below:
+
+![Downtown Comparison of Nightly Rental Prices Over Corresponding Price Per Square Foot](img/nightlypriceperppsfdowntownhist.png)
+
+This histogram shows that when the price per square foot is taken into consideration, the medians are flipped and the houses outside of downtown actually perform better.  A Mann Whitney U test was performed on this metric as well and, indeed, the metric was stochastically higher for the listings outside of downtown than those that were inside downtown.  
+
+### Best Zip Codes to Be In
+If it is actually better to be outside of downtown than inside, what are the best zip codes to be in?  Using the same metric as before (Airbnb Nightly Rental Price divided by the Median Sale Price Per Square Foot of the Zip Code of the Listing), I created a map showing where the metric was the highest.  
+
+![Map of Austin with Airbnb Nightly Rental Price divided by Median Sale PPSF of Zip](img/chloro.png)
 
 
 ### Hypotheses:
