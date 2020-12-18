@@ -47,7 +47,32 @@ Performing a Mann Whitney U test, I obtained a p-value of 0.0589.  This is sligh
 However, when running the test after dividing each rental price by the price per square foot, I obtained a p value of 3.17e-07.  On that basis, I can say that Nashville performs better using the metric I created to compare the cities.
 
 ## Number of Bedrooms
+What size house should you invest in?  It is fairly obvious that the larger the house, the more bedrooms, and the more you can charge per night.  However, is it a linear relationship?  Will the nightly rate for a one bedroom house be one third the nightly rate of a three bedroom house?  Is there a sweet spot in terms of number of beds and rental price per bedroom?
 
+NOTE: There was not data available on sale price per bedroom of the houses.  To truly compare the expenses of the house to the income per bedroom, you would need this data and would require further analysis.  For the sake of this project, I am looking only at rental price per bedroom.
+NOTE2: From here on out, we will only be looking at Austin data.
+
+To do this analysis, I made a metric for each listing which was nightly rental price divided by the number of bedrooms.  I then divided the data into separate dataframes based on the number of bedrooms in the listing.  The final step was to run bootstrap samples on the medians for the Nightly Rental Price over the Number of Bedrooms metric that I created earlier.  
+
+![One Bedroom vs. Three Bedrooms](img/1vs3bedroom.png)
+
+Above, you can see that the median nightly price per bedroom for a single bedroom house is almost 20 USD higher than for a three bedroom house.  This is interesting and may require further analysis as to why, but I believe that there is a certain threshold below which people are not willing to list their properties.  This threshold would cause the one bedrooms to have a higher nightly price per bedroom.
+
+I also compared three bedroom houses to five bedroom houses, as well as five bedroom houses to those with six or more bedrooms.
+
+![Three Bedroom vs. Five Bedrooms](img/3vs5bedroom.png)
+
+![Five Bedroom vs. Six Plus Bedrooms](img/5vs6plusbedroom.png)
+
+It was interesting to see how much greater of a nightly price per bedroom the five bedroom houses commanded over the three bedroom houses.  My guess is that there is a much smaller supply of five bedroom houses than there is for three bedroom houses, so you can charge higher nightly rates (per bedroom).
+
+It can also be seen that there is no real difference in the medians for five bedroom houses and those with six or more bedrooms.
+
+Putting the relationship of nightly price to bedrooms is shown in the graph below.
+
+![Nightly Price vs Number of Bedrooms](img/priceperbedrooms.png)
+
+## Location in Austin
 
 
 ### Hypotheses:
@@ -120,6 +145,8 @@ Cleaning.py:
 - data obtained from propstream.com
 
 ### Further Study
+I would want to look at availability.  None of this analysis takes into consideration the percent of time that the listings are booked.  So, while the bigger listings may command a higher price, they may be booked less often and compromise total revenue.
+
 I would like to look at correlations between house Airbnb prices and availability.  I think you could find a sweet spot in terms of house size, house price, location, Airbnb price, and availability to maximize revenue.
 
 Recommender for houses for Airbnb.
