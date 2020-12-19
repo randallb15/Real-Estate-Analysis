@@ -104,6 +104,9 @@ If it is actually better to be outside of downtown than inside, what are the bes
 
 ![Map of Austin with Airbnb Nightly Rental Price divided by Median Sale PPSF of Zip](img/chloro.png)
 
+![Map of Austin with Airbnb Nightly Rental Price divided by Median Sale PPSF of Zip](img/chloro.html)
+
+
 The darker the color on this map, the higher the greater the nightly rental price over price per square foot metric.  The best zip codes in Austin from this map are 78731, 78723, and 78738.  78731 has a score of over 2.5, which means that a house in this zip code is expected to rent out for 2.5 times the median sale price per square foot of the area.  This can be compared to an average of 1 across the city of Austin.  
 
 
